@@ -13,6 +13,18 @@
 <body>
 
     <form action="data.php" method="post">
+        <?php if (isset($_GET['error'])) : ?>
+            <div class="alert alert-danger">
+                <?php echo $_GET['error'] ?>
+            </div>
+        <?php endif; ?>
+
+        <?php if (isset($_GET['success'])) : ?>
+            <div class="alert alert-success">
+                <?php echo $_GET['success'] ?>
+            </div>
+        <?php endif; ?>
+
         <div class="m-5" width="50%" height="500px">
             <h2 class="text-dark">Student Registration</h2>
 
@@ -20,27 +32,32 @@
                 <label for="fname">Name</label>
                 <input type="text" class="form-control" name="fname" id="fname" placeholder="Enter your name">
             </div>
+
             <div class="form-control bg-secondary text-white m-3">
                 <label for="ffname">father name</label>
                 <input type="text" class="form-control" name="ffname" id="ffname" placeholder="Enter your father">
             </div>
+
             <div class="form-control bg-warning m-3">
-                <label for="email">email</label>
-                <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email" autocomplete="off">
+                <label for="eml">email</label>
+                <input type="email" class="form-control" name="eml" id="eml" placeholder="Enter your email" autocomplete="off">
             </div>
+
             <div class="form-control bg-secondary text-white m-3">
                 <label for="pwd">password</label>
-                <input type="password" class="form-control" name="email" id="email" placeholder="Enter your name" autocomplete="new-password">
+                <input type="password" class="form-control" name="pwd" id="pwd" placeholder="Enter your password" autocomplete="new-password">
             </div>
+
             <div class="form-control bg-warning m-3">
                 <label for="tech">Technology</label>
-                <select>
+                <select name="tech">
                     <option value="Select Language">Select Language</option>
-                    <option value="1">Php</option>
-                    <option value="2">Laravel</option>
-                    <option value="3">Wordpress</option>
+                    <option value="php">Php</option>
+                    <option value="laravel">Laravel</option>
+                    <option value="wordpress">Wordpress</option>
                 </select>
             </div>
+
             <div class="form-control bg-secondary text-white m-3">
                 Gender:-
                 <div class="mx-5">
@@ -50,22 +67,22 @@
                     <input type="radio" class="form-check-input" name="gen" id="female" value="female">
                 </div>
             </div>
+
             <div class="form-control bg-warning m-3">
                 How many language you spoke?
                 <div class="mx-5">
                     <label for="lang1">English</label>
-                    <input type="checkbox" class="form-check-input" name="lang1" id="lang1">
+                    <input type="checkbox" class="form-check-input" name="lang[]" value="English," >
                     <label for="lang2">Hindi</label>
-                    <input type="checkbox" class="form-check-input" name="lang2" id="lang2">
+                    <input type="checkbox" class="form-check-input" name="lang[]" value="Hindi,">
                     <label for="lang3">Punjabi</label>
-                    <input type="checkbox" class="form-check-input" name="lang3" id="lang3">
+                    <input type="checkbox" class="form-check-input" name="lang[]" value="punjabi">
                 </div>
             </div>
             <div class="form-control bg-secondary text-white m-3">
-               <p> Any query write here:-</p>
-                <textarea name="des" id="des" rows="4" cols="50" ></textarea>
+                <p> Any query write here:-</p>
+                <textarea name="des" id="des" rows="4" cols="50" placeholder="write here...."></textarea>
             </div>
-       
             <div class=" m-3">
                 <button class="col-4 btn btn-info">Submit</button>
             </div>
